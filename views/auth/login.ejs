@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HR Login</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <%- include('../partials/header') %>
+
+  <h2>HR Login</h2>
+
+  <% if (success_msg) { %>
+    <p class="success"><%= success_msg %></p>
+  <% } %>
+  <% if (error_msg) { %>
+    <p class="error"><%= error_msg %></p>
+  <% } %>
+
+  <form action="/auth/login" method="POST">
+    <label>Email:</label>
+    <input type="email" name="email" required>
+
+    <label>Password:</label>
+    <input type="password" name="password" required>
+
+    <button type="submit">Login</button>
+  </form>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

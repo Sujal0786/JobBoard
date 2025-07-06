@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<h2>Admin Dashboard</h2>
+
+<a href="/add">Add New Job</a>
+
+<% jobs.forEach(job => { %>
+  <div class="job-card">
+    <h3><%= job.title %> at <%= job.company %></h3>
+    <p><%= job.location %></p>
+    <a href="/edit/<%= job._id %>">Edit</a>
+    <form action="/delete/<%= job._id %>" method="POST" style="display:inline;">
+      <button type="submit">Delete</button>
+    </form>
+    <a href="/applications/job/<%= job._id %>">View Applications</a>
+  </div>
+<% }) %>
+
+<%- include('../partials/footer') %>

@@ -1,0 +1,47 @@
+<head>
+  <title>JobBoardPro</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<header>
+  <div class="navbar">
+    <!-- Left Side: Logo + Job Listings -->
+    <div class="nav-left">
+      <a href="/" class="nav-link">
+        <i class="fa fa-briefcase"></i> Job Listings
+      </a>
+    </div>
+
+    <!-- Right Side: Role Based Links -->
+    <div class="nav-right">
+      <% if (locals && locals.user) { %>
+        <% if (locals.user.role === 'hr') { %>
+          <a href="/dashboard">HR Dashboard</a>
+          <a href="/auth/logout">Logout</a>
+        <% } else if (locals.user.role === 'user') { %>
+          <a href="/profile">My Profile</a>
+          <a href="/users/logout">Logout</a>
+        <% } %>
+      <% } else { %>
+        <div class="dropdown">
+          <button class="dropbtn">Login/Register</button>
+          <div class="dropdown-content">
+            <strong>Login as:</strong>
+            <a href="/auth/login">HR Login</a>
+            <a href="/users/login">User Login</a>
+            <hr>
+            <strong>Register as:</strong>
+            <a href="/auth/register">HR Register</a>
+            <a href="/users/register">User Register</a>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
+  <% if (success_msg) { %>
+    <p class="success"><%= success_msg %></p>
+  <% } %>
+  <% if (error_msg) { %>
+    <p class="error"><%= error_msg %></p>
+  <% } %>
+</header>

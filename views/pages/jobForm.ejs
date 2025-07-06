@@ -1,0 +1,62 @@
+<%- include('../partials/header') %>
+
+<div class="container">
+  <h2><%= job._id ? 'Edit Job' : 'Add New Job' %></h2>
+
+  <form 
+    action="<%= job._id ? '/edit/' + job._id : '/add' %>" 
+    method="POST" 
+    enctype="multipart/form-data"
+    class="job-form"
+  >
+    <!-- Title -->
+    <label>Job Title:</label>
+    <input 
+      type="text" 
+      name="title" 
+      value="<%= job.title || '' %>" 
+      required
+    >
+
+    <!-- Company Name -->
+    <label>Company Name:</label>
+    <input 
+      type="text" 
+      name="companyName" 
+      value="<%= job.companyName || '' %>" 
+      required
+    >
+
+    <!-- Company Logo -->
+    <label>Company Logo:</label>
+    <% if (job.companyLogo) { %>
+      <p>Current Logo:</p>
+      <img src="<%= job.companyLogo %>" alt="Logo" width="100">
+    <% } %>
+    <input 
+      type="file" 
+      name="companyLogo"
+    >
+
+    <!-- Description -->
+    <label>Description:</label>
+    <textarea 
+      name="description" 
+      required
+    ><%= job.description || '' %></textarea>
+
+    <!-- Location -->
+    <label>Location:</label>
+    <input 
+      type="text" 
+      name="location" 
+      value="<%= job.location || '' %>" 
+      required
+    >
+
+    <!-- Submit -->
+    <button type="submit">Save Job</button>
+  </form>
+</div>
+
+<%- include('../partials/footer') %>

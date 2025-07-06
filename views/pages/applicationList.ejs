@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+
+<h2>Applications</h2>
+
+<% applications.forEach(app => { %>
+  <div class="app-card">
+    <h3><%= app.name %></h3>
+    <p>Email: <%= app.email %></p>
+    <p>Status: <%= app.status %></p>
+    <a href="/uploads/<%= app.cv %>" target="_blank">View CV</a>
+  </div>
+<% }) %>
+
+<%- include('../partials/footer') %>
