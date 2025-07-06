@@ -187,9 +187,10 @@
 
 .job-card a {
   display: inline-block;
-  margin-top: 8px;
-  color: #e7ebf0;
-  font-size: 14px;
+    margin-top: 8px;
+    color: #121418;
+    font-size: large;
+    text-decoration: none;
 }
 
 .job-card:hover {
