@@ -53,7 +53,7 @@ Built with **Node.js**, **Express**, **EJS**, and **CSS Flexbox**.
    npm start
    ```
 
-4. Open your browser at **http://localhost:3000**
+4. Open your browser at **http://localhost:5000**
 
 ---
 
